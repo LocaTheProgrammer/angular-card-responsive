@@ -1,0 +1,35 @@
+<span class="d-none d-md-block">
+    <div class="row">
+        <div class="col d-flex justify-content-center" *ngFor="let item of headers">
+            <h2>{{item | name}}</h2>
+        </div>
+    </div>
+
+    <div class="row" *ngFor="let item of dataList">
+        <div class="col d-flex justify-content-center" *ngFor="let head of headers">
+            <span *ngIf="isValueDate(item[head]);else noPipe">{{item[head] | date: 'dd/MM/yyyy'}}</span>
+            <ng-template #noPipe>{{item[head]}}</ng-template>
+        </div>
+    </div>
+</span>
+
+
+<span class="d-block d-md-none d-flex justify-content-center">
+
+    <table class="mobile-table">
+        <tr class="text-center">
+            <th *ngFor="let item of headers" class="px-4">
+                {{item | name}}
+            </th>
+        </tr>
+        <tr *ngFor="let item of dataList" class="text-center">
+            <td *ngFor="let head of headers">
+                <span *ngIf="isValueDate(item[head]);else noPipe">{{item[head] | date: 'dd/MM/yyyy'}}</span>
+                <ng-template #noPipe>{{item[head]}}</ng-template>
+            </td>
+        </tr>
+    </table>
+
+
+
+</span>

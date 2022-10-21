@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">nome farmaco</span>
+                    <input type="text" class="form-control" [(ngModel)]="name" placeholder="nome farmaco"
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">exp date</span>
+                    <input type="date" class="form-control" [(ngModel)]="expDate" placeholder="data scadenza"
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">prescritto da</span>
+                    <input type="text" class="form-control" [(ngModel)]="prescribedBy" placeholder="prescritto da..."
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <button class="btn btn-success" (click)="add()">add</button>
+    </div>
+</div>

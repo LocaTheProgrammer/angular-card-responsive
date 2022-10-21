@@ -1,0 +1,4 @@
+<select [(ngModel)]="itemSelected">
+    <option *ngFor="let item of dataList" [value]="item[idPropertyName]">{{item[fieldName]}}
+    </option>
+</select>
