@@ -10,6 +10,7 @@ import { NamePipe } from './pipe/name.pipe';
 import { AddDrugFormComponent } from './components/add-drug-form/add-drug-form.component';
 import { FormsModule } from '@angular/forms';
 import { SelectComponent } from './components/select/select.component';
+import { ButtonCustomComponent } from './components/button-custom/button-custom.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SelectComponent } from './components/select/select.component';
     DynamicTableComponent,
     NamePipe,
     AddDrugFormComponent,
-    SelectComponent
+    SelectComponent,
+    ButtonCustomComponent
   ],
   imports: [
     FormsModule,
