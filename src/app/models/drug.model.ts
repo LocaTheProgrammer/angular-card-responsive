@@ -4,6 +4,7 @@ export class Drug {
     expirationDate: Date
     prescribedBy: string
 
+
     constructor(id: number, name: string, expirationDate: Date, prescribedBy: string) {
         this.name = name
         this.id = id
