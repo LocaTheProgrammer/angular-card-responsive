@@ -11,7 +11,7 @@ import { DrugService } from 'src/app/service/drug.service';
 })
 export class HomepageComponent implements OnInit {
 
-  cardImage!: Observable<Image>
+  cardImage: Observable<Image> = this.drugService.getAllImages()
   drugProperties: string[] = ['name', 'expirationDate', 'prescribedBy']
 
   //DATE FORMAT: MM/DD/YYYY
@@ -20,10 +20,13 @@ export class HomepageComponent implements OnInit {
   constructor(private drugService: DrugService) { }
 
   ngOnInit(): void {
+    this.getDrugs()
+  }
+
+  getDrugs() {
     this.drugService.getAll().subscribe(drugs => {
       this.drugList = drugs
     })
-    this.cardImage = this.drugService.getAllImages()
   }
 
   addRecord($event: Drug) {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Drug } from 'src/app/models/drug.model';
 import { EventEmitter } from '@angular/core';
 
@@ -7,19 +7,13 @@ import { EventEmitter } from '@angular/core';
   templateUrl: './add-drug-form.component.html',
   styleUrls: ['./add-drug-form.component.scss']
 })
-export class AddDrugFormComponent implements OnInit {
+export class AddDrugFormComponent {
 
   name: string = ''
   expDate: any
   prescribedBy: string = ''
 
   @Output() emitter = new EventEmitter<any>();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 
   add() {
     let newRow: Drug = new Drug(0, this.name, new Date(this.expDate), this.prescribedBy)

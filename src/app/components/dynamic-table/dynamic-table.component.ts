@@ -16,6 +16,6 @@ export class DynamicTableComponent implements OnInit {
   }
 
   isValueDate(value: any) {
-    return value instanceof Date
+    return Date.parse(value)
   }
 }
