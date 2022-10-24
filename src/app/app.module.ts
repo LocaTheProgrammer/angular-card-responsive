@@ -12,6 +12,7 @@ import { AddDrugFormComponent } from './components/add-drug-form/add-drug-form.c
 import { FormsModule } from '@angular/forms';
 import { SelectComponent } from './components/select/select.component';
 import { ButtonCustomComponent } from './components/button-custom/button-custom.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ButtonCustomComponent } from './components/button-custom/button-custom.
     ButtonCustomComponent
   ],
   imports: [
+    CommonModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,

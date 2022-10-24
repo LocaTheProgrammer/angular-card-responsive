@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'modal-card',
@@ -12,7 +12,10 @@ export class ModalCardComponent {
   @Input() image: any
   @Input() fieldName: any
 
+  @ViewChild('closeBtn') closeBtn!: ElementRef<HTMLElement>;
+
   drugSelected: any
+  isLoading = true
 
   @Output() recordAdder = new EventEmitter<any>();
   @Output() recordDeleter = new EventEmitter<any>();
@@ -23,6 +26,12 @@ export class ModalCardComponent {
 
   delete() {
     this.recordDeleter.emit(this.drugSelected)
+  }
+
+
+  @HostListener('window:resize', ['$event'])
+  resize() {
+    this.closeBtn.nativeElement.click()
   }
 
 }
