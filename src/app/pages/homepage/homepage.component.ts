@@ -11,10 +11,9 @@ import { DrugService } from 'src/app/service/drug.service';
 })
 export class HomepageComponent implements OnInit {
 
-  cardImage: Observable<Image> = this.drugService.getAllImages()
+  cardImage: Observable<Image> = this.drugService.getCardImg()
   drugProperties: string[] = ['name', 'expirationDate', 'prescribedBy']
 
-  //DATE FORMAT: MM/DD/YYYY
   drugList: Drug[] = []
 
   constructor(private drugService: DrugService) { }
@@ -31,10 +30,22 @@ export class HomepageComponent implements OnInit {
 
   addRecord($event: Drug) {
     $event.id = this.drugList.length
-    this.drugList.push($event)
+    this.drugService.addDrug($event).subscribe(
+      {
+        next: () => this.getDrugs(),
+        error: () => console.log("error"),
+        complete: () => console.log("complete")
+      }
+    )
   }
 
   deleteRecord($event: number) {
-    this.drugList = this.drugList.filter(drug => drug.id != $event)
+    this.drugService.deleteDrugById($event).subscribe(
+      {
+        next: () => this.getDrugs(),
+        error: () => console.log("error"),
+        complete: () => console.log("complete")
+      }
+    )
   }
 }

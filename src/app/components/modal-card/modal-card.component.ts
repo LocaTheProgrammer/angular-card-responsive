@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'modal-card',
   templateUrl: './modal-card.component.html',
   styleUrls: ['./modal-card.component.scss']
 })
-export class ModalCardComponent implements OnInit {
+export class ModalCardComponent {
 
   @Input() dataList: any[] = []
   @Input() headerList: any[] = []
@@ -16,10 +16,6 @@ export class ModalCardComponent implements OnInit {
 
   @Output() recordAdder = new EventEmitter<any>();
   @Output() recordDeleter = new EventEmitter<any>();
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   addRecord($event: any) {
     this.recordAdder.emit($event)

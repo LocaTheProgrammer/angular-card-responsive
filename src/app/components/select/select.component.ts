@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -13,16 +13,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class SelectComponent implements OnInit, ControlValueAccessor {
+export class SelectComponent implements ControlValueAccessor {
 
   @Input() dataList: any[] = []
   @Input() fieldName: string = ''
   @Input() idPropertyName: string = ''
   item: any
-  constructor() { }
 
-  ngOnInit(): void {
-  }
   onChange: any = () => { };
   onTouch: any = () => { };
 

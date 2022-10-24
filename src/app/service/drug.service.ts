@@ -16,17 +16,15 @@ export class DrugService {
     return this.httpClient.get<Drug[]>(`${this.mockUrl}/drugs`)
   }
 
-
-  // {
-  //   "id": 0,
-  //   "link": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTpuyyt-jkqBNz7rRElj_znOVAGQSAgOlja5pRGDKvsJBbc5KnX"
-  // }
-  getCardImage(id: number): Observable<Image> {
-    return this.httpClient.get<Image>(`${this.mockUrl}/images/${id}`,)
+  getCardImg(): Observable<Image> {
+    return this.httpClient.get<Image>(`${this.mockUrl}/images`)
   }
 
+  addDrug(newDrug: Drug) {
+    return this.httpClient.post<Drug>(`${this.mockUrl}/drugs`, newDrug)
+  }
 
-  getAllImages(): Observable<Image> {
-    return this.httpClient.get<Image>(`${this.mockUrl}/images`)
+  deleteDrugById(id: number) {
+    return this.httpClient.delete<Drug>(`${this.mockUrl}/drugs/${id}`)
   }
 }
