@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Drug } from 'src/app/models/drug.model';
+import { Image } from 'src/app/models/image.model';
+import { DrugService } from 'src/app/service/drug.service';
 
 @Component({
   selector: 'app-homepage',
@@ -8,21 +11,19 @@ import { Drug } from 'src/app/models/drug.model';
 })
 export class HomepageComponent implements OnInit {
 
-  cardImage: string = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTpuyyt-jkqBNz7rRElj_znOVAGQSAgOlja5pRGDKvsJBbc5KnX'
-
+  cardImage!: Observable<Image>
   drugProperties: string[] = ['name', 'expirationDate', 'prescribedBy']
 
   //DATE FORMAT: MM/DD/YYYY
-  drugList: Drug[] = [
-    new Drug(0, 'tachipirina', new Date("10/25/2022"), 'Dr. House'),
-    new Drug(1, 'oki', new Date('11/25/2022'), 'Thirteen'),
-    new Drug(2, 'malox', new Date('12/12/2022'), 'James Wilson'),
-    new Drug(3, 'ritalin', new Date('5/01/2023'), 'Rober Chase')
-  ]
+  drugList: Drug[] = []
 
-  constructor() { }
+  constructor(private drugService: DrugService) { }
 
   ngOnInit(): void {
+    this.drugService.getAll().subscribe(drugs => {
+      this.drugList = drugs
+    })
+    this.cardImage = this.drugService.getAllImages()
   }
 
   addRecord($event: Drug) {

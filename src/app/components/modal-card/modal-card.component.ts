@@ -9,7 +9,7 @@ export class ModalCardComponent implements OnInit {
 
   @Input() dataList: any[] = []
   @Input() headerList: any[] = []
-  @Input() image: string = ''
+  @Input() image: any
   @Input() fieldName: any
 
   drugSelected: any

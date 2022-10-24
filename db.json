@@ -1,0 +1,31 @@
+{
+  "drugs": [
+    {
+      "id": 0,
+      "name": "tachipirina",
+      "expirationDate": "10/25/2022",
+      "prescribedBy": "Dr. House"
+    },
+    {
+      "id": 1,
+      "name": "oki",
+      "expirationDate": "11/25/2022",
+      "prescribedBy": "Thirteen"
+    },
+    {
+      "id": 2,
+      "name": "malox",
+      "expirationDate": "12/12/2022",
+      "prescribedBy": "James Wilson"
+    },
+    {
+      "id": 3,
+      "name": "ritalin",
+      "expirationDate": "5/01/2023",
+      "prescribedBy": "Rober Chase"
+    }
+  ],
+  "images": {
+    "link": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTpuyyt-jkqBNz7rRElj_znOVAGQSAgOlja5pRGDKvsJBbc5KnX"
+  }
+}
